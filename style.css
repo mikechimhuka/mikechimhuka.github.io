@@ -248,3 +248,50 @@ footer { padding: 40px 7%; border-top: 1px solid var(--line); display: flex; jus
     margin:0 auto 30px;
     line-height:1.7;
 }
+.cert-card{
+    cursor:pointer;
+}
+
+.cert-card small{
+    display:block;
+    margin-top:16px;
+    color:var(--muted);
+    font-weight:700;
+}
+
+.cert-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.85);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:30px;
+}
+
+.cert-modal.active{
+    display:flex;
+}
+
+.cert-modal img{
+    max-width:90%;
+    max-height:85vh;
+    border-radius:18px;
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
+    background:#fff;
+}
+
+.cert-close{
+    position:absolute;
+    top:25px;
+    right:35px;
+    border:none;
+    background:#fff;
+    color:#111;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    font-size:30px;
+    cursor:pointer;
+}

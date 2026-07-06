@@ -209,3 +209,42 @@ footer { padding: 40px 7%; border-top: 1px solid var(--line); display: flex; jus
   .site-header { padding: 14px 5%; }
   .brand span:last-child { display: none; }
 }
+/* ===========================
+   Featured Article
+=========================== */
+
+.featured-article{
+    padding-top:40px;
+    padding-bottom:20px;
+}
+
+.article-card{
+    max-width:900px;
+    margin:auto;
+    background:var(--card-bg);
+    border-radius:24px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.article-tag{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:999px;
+    background:#2563eb;
+    color:#fff;
+    font-size:.8rem;
+    margin-bottom:15px;
+}
+
+.article-card h2{
+    margin-bottom:15px;
+}
+
+.article-card p{
+    max-width:650px;
+    margin:0 auto 30px;
+    line-height:1.7;
+}

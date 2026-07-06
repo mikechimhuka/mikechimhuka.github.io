@@ -59,3 +59,26 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 counters.forEach(counter => counterObserver.observe(counter));
+const certCards = document.querySelectorAll(".cert-card[data-cert]");
+const certModal = document.getElementById("certModal");
+const certModalImg = document.getElementById("certModalImg");
+const certClose = document.getElementById("certClose");
+
+certCards.forEach((card) => {
+  card.addEventListener("click", () => {
+    certModalImg.src = card.dataset.cert;
+    certModal.classList.add("active");
+  });
+});
+
+certClose.addEventListener("click", () => {
+  certModal.classList.remove("active");
+  certModalImg.src = "";
+});
+
+certModal.addEventListener("click", (e) => {
+  if (e.target === certModal) {
+    certModal.classList.remove("active");
+    certModalImg.src = "";
+  }
+});

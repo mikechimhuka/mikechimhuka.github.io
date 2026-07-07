@@ -855,3 +855,100 @@ footer {
     right: 16px;
   }
 }
+/* ===============================
+   Bible Verse Section
+================================ */
+
+.bible-section{
+    padding:80px 7%;
+}
+
+.bible-card{
+
+    max-width:950px;
+
+    margin:auto;
+
+    padding:60px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(124,92,255,.15),
+        rgba(33,212,253,.08)
+    );
+
+    border:1px solid var(--line);
+
+    border-radius:30px;
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:0 30px 90px rgba(0,0,0,.25);
+
+    transition:.35s ease;
+}
+
+.bible-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--accent-two);
+
+    box-shadow:0 40px 120px rgba(33,212,253,.18);
+
+}
+
+.bible-card h2{
+
+    margin:15px 0 35px;
+
+}
+
+.bible-card blockquote{
+
+    font-size:clamp(1.7rem,3vw,2.4rem);
+
+    line-height:1.7;
+
+    font-style:italic;
+
+    font-weight:700;
+
+    color:var(--text);
+
+    max-width:760px;
+
+    margin:auto auto 25px;
+
+}
+
+.bible-card cite{
+
+    display:block;
+
+    color:var(--accent-two);
+
+    font-size:1.15rem;
+
+    font-weight:800;
+
+    margin-bottom:30px;
+
+}
+
+.bible-description{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    line-height:1.9;
+
+    font-size:1.05rem;
+
+}

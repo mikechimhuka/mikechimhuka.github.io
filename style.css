@@ -295,3 +295,19 @@ footer { padding: 40px 7%; border-top: 1px solid var(--line); display: flex; jus
     font-size:30px;
     cursor:pointer;
 }
+
+.reveal {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+main,
+section,
+.hero,
+.hero-copy,
+.hero-visual {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

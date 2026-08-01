@@ -1,43 +1,19 @@
-const root = document.documentElement;
-const toggle = document.getElementById("themeToggle");
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
 const glow = document.querySelector(".cursor-glow");
-
-const setTheme = (theme) => {
-  root.setAttribute("data-theme", theme);
-  if (toggle) {
-    toggle.textContent = theme === "light" ? "☀" : "☾";
-    toggle.setAttribute("aria-label", `Switch to ${theme === "light" ? "dark" : "light"} theme`);
-  }
-};
-
-const savedTheme = localStorage.getItem("portfolio-theme");
-if (savedTheme === "light" || savedTheme === "dark") {
-  setTheme(savedTheme);
-}
-
-if (toggle) {
-  toggle.addEventListener("click", () => {
-    const current = root.getAttribute("data-theme") || "dark";
-    const next = current === "light" ? "dark" : "light";
-    setTheme(next);
-    localStorage.setItem("portfolio-theme", next);
-  });
-}
 
 if (menuBtn && nav) {
   menuBtn.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("open");
     menuBtn.setAttribute("aria-expanded", String(isOpen));
-    menuBtn.textContent = isOpen ? "×" : "☰";
+    menuBtn.textContent = isOpen ? "\u00D7" : "\u2630";
   });
 
   nav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       nav.classList.remove("open");
       menuBtn.setAttribute("aria-expanded", "false");
-      menuBtn.textContent = "☰";
+      menuBtn.textContent = "\u2630";
     });
   });
 }
@@ -58,7 +34,7 @@ if ("IntersectionObserver" in window) {
       entry.target.classList.add("show");
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
 
   revealElements.forEach((element) => revealObserver.observe(element));
 } else {
@@ -69,32 +45,26 @@ const counters = document.querySelectorAll("[data-count]");
 
 const animateCounter = (element) => {
   const target = Number(element.dataset.count);
+  if (!Number.isFinite(target) || target < 0) return;
 
-  if (!Number.isFinite(target) || target < 0) {
-    element.textContent = "0";
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    element.textContent = `${target.toLocaleString()}${target >= 10 ? "+" : ""}`;
     return;
   }
 
   const duration = 1100;
   const startTime = performance.now();
 
-  const formatValue = (value) => {
-    const rounded = Math.floor(value);
-    return rounded.toLocaleString();
-  };
-
   const tick = (now) => {
     const progress = Math.min((now - startTime) / duration, 1);
-    const easedProgress = 1 - Math.pow(1 - progress, 3);
-    const current = target * easedProgress;
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(target * eased);
 
     element.textContent = progress === 1
       ? `${target.toLocaleString()}${target >= 10 ? "+" : ""}`
-      : formatValue(current);
+      : current.toLocaleString();
 
-    if (progress < 1) {
-      requestAnimationFrame(tick);
-    }
+    if (progress < 1) requestAnimationFrame(tick);
   };
 
   requestAnimationFrame(tick);
@@ -129,7 +99,7 @@ const closeCertificate = () => {
   certModalImg.removeAttribute("src");
   document.body.classList.remove("modal-open");
 
-  if (lastFocusedElement) {
+  if (lastFocusedElement instanceof HTMLElement) {
     lastFocusedElement.focus();
     lastFocusedElement = null;
   }
@@ -143,15 +113,12 @@ const openCertificate = (card) => {
 
   if (certModal && certModalImg) {
     certModalImg.src = certPath;
-    certModalImg.alt = `${card.querySelector("h3")?.textContent || "Certificate"} certificate`;
+    certModalImg.alt = `${card.querySelector("h3")?.textContent || "Selected"} certificate`;
     certModal.classList.add("active");
     certModal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
     certClose?.focus();
-    return;
   }
-
-  window.open(certPath, "_blank", "noopener,noreferrer");
 };
 
 certCards.forEach((card) => {
@@ -160,7 +127,6 @@ certCards.forEach((card) => {
   card.setAttribute("aria-label", `View ${card.querySelector("h3")?.textContent || "certificate"}`);
 
   card.addEventListener("click", () => openCertificate(card));
-
   card.addEventListener("keydown", (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -169,17 +135,11 @@ certCards.forEach((card) => {
   });
 });
 
-if (certClose) {
-  certClose.addEventListener("click", closeCertificate);
-}
+certClose?.addEventListener("click", closeCertificate);
 
-if (certModal) {
-  certModal.addEventListener("click", (event) => {
-    if (event.target === certModal) {
-      closeCertificate();
-    }
-  });
-}
+certModal?.addEventListener("click", (event) => {
+  if (event.target === certModal) closeCertificate();
+});
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && certModal?.classList.contains("active")) {

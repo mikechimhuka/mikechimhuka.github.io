@@ -9,6 +9,15 @@
     name="description"
     content="Mike Chimhuka &mdash; IT Help Desk Team Lead, cybersecurity student, and aspiring network/security professional with experience in IT support, mentoring, networking, and cloud fundamentals."
   />
+  <meta name="theme-color" content="#03070d" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mikechimhuka.github.io/" />
+  <meta property="og:title" content="Mike Chimhuka | IT Support & Cybersecurity" />
+  <meta property="og:description" content="IT support leadership, cybersecurity, networking, certifications, and practical projects built to make an impact." />
+  <meta property="og:image" content="https://mikechimhuka.github.io/images/og.png" />
+  <meta property="og:image:alt" content="Mike Chimhuka — IT Support, Cybersecurity, and Networking" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://mikechimhuka.github.io/images/og.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,17 +27,6 @@
   >
 
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .company-link {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .company-link:hover,
-    .company-link:focus-visible {
-      text-decoration: underline;
-    }
-  </style>
 </head>
 
 <body>
@@ -38,39 +36,39 @@
   <header class="site-header" id="top">
     <a href="#top" class="brand" aria-label="Mike Chimhuka home">
       <span class="brand-mark">MC</span>
-      <span>Mike Chimhuka</span>
+      <span class="brand-copy">
+        <strong>Mike Chimhuka</strong>
+        <small>Systems / Security</small>
+      </span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Primary navigation">
-      <a href="#story">Story</a>
       <a href="#experience">Experience</a>
       <a href="#certifications">Certifications</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a class="nav-contact" href="#contact">Let&rsquo;s connect</a>
     </nav>
 
     <div class="header-actions">
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">&#9790;</button>
       <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">&#9776;</button>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero section">
+    <section class="hero section" aria-labelledby="hero-title">
       <div class="hero-copy reveal">
-        <p class="eyebrow">IT Support &bull; Cybersecurity &bull; Networking</p>
+        <p class="eyebrow"><span aria-hidden="true"></span> IT Support &bull; Cybersecurity &bull; Networking</p>
 
-        <h1>Building secure systems, solving real IT problems, and growing with purpose.</h1>
+        <h1 id="hero-title">Secure systems.<span>Real IT problems solved.</span></h1>
 
         <p class="hero-text">
-          I&rsquo;m Mike Chimhuka, an IT Help Desk Team Lead and cybersecurity student with hands-on experience in technical support, mentoring, networking, cloud fundamentals, and continuous professional growth. My journey from Zimbabwe to the United States has shaped my discipline, resilience, faith, and commitment to using technology to serve people well.
+          I&rsquo;m Mike Chimhuka&mdash;an IT Help Desk Team Lead and cybersecurity professional who combines calm troubleshooting, network fluency, and a security-first mindset to keep people productive and systems resilient.
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="#experience">View Experience</a>
-          <a class="btn secondary" href="#certifications">View Certifications</a>
-          <a class="btn secondary" href="assets/Mike_Chimhuka_Resume.docx" download>Download Resume</a>
+          <a class="btn primary" href="#projects">View selected work <span aria-hidden="true">&searr;</span></a>
+          <a class="btn secondary" href="assets/Mike_Chimhuka_Resume.docx" download>Download r&eacute;sum&eacute; <span aria-hidden="true">&darr;</span></a>
         </div>
 
         <div class="hero-badges" aria-label="Professional highlights">
@@ -81,23 +79,25 @@
       </div>
 
       <div class="hero-visual reveal">
+        <div class="hero-orbit" aria-hidden="true"></div>
+        <p class="availability"><span aria-hidden="true"></span> Open to opportunities</p>
         <div class="photo-card">
           <img
             src="images/profile.jpg"
             alt="Mike Chimhuka"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
           />
-          <div class="photo-fallback">Add<br />profile.jpg<br />inside images</div>
+          <div class="photo-fallback">MC</div>
         </div>
 
         <div class="floating-card card-one">
-          <strong>Security+</strong>
-          <span>Earned July 3, 2026</span>
+          <span>Current focus</span>
+          <strong>Secure infrastructure &amp; exceptional user support</strong>
         </div>
 
         <div class="floating-card card-two">
-          <strong>15+</strong>
-          <span>IT interns mentored</span>
+          <span>Based in</span>
+          <strong>Cincinnati, Ohio</strong>
         </div>
       </div>
     </section>
@@ -392,26 +392,26 @@
         <div>Network Troubleshooting</div>
       </div>
     </section>
-
-
-</section>
     <section class="section" id="projects">
-      <div class="section-heading reveal center">
-        <p class="eyebrow">Projects</p>
-        <h2>Projects that show practical skills beyond the classroom.</h2>
+      <div class="section-heading reveal section-heading-row">
+        <div>
+          <p class="eyebrow"><span aria-hidden="true"></span> Selected systems &amp; initiatives</p>
+          <h2>Work built to matter.</h2>
+        </div>
+        <p>Projects where technical execution meets real-world usefulness&mdash;from international education access to proactive security operations.</p>
       </div>
 
       <div class="project-grid">
-        <article class="project-card reveal">
+        <article class="project-card project-featured reveal">
           <span>01</span>
-          <h3><a href="https://nextstepstudysolutions.org/" target="_blank" rel="noopener noreferrer" class="company-link">Next Step Study Solutions</a></h3>
+          <h3><a href="https://nextstepstudysolutions.org/" target="_blank" rel="noopener noreferrer" class="company-link">Next Step Study Solutions <b aria-hidden="true">&nearr;</b></a></h3>
           <p>Built a digital platform for a registered nonprofit helping students from Zimbabwe and across Africa access university matching, study-abroad applications, visa guidance, scholarships, and pre-departure support.</p>
           <small>Nonprofit &bull; Study Abroad Support &bull; Web Platform</small>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card project-featured reveal">
           <span>02</span>
-          <h3><a href="https://cyberpulse-frontend.onrender.com" target="_blank" rel="noopener noreferrer" class="company-link">CyberPulse Security Platform</a></h3>
+          <h3><a href="https://cyberpulse-frontend.onrender.com" target="_blank" rel="noopener noreferrer" class="company-link">CyberPulse Security Platform <b aria-hidden="true">&nearr;</b></a></h3>
           <p>Built and deployed a full-stack defensive cybersecurity platform for asset inventory, vulnerability tracking, authorized mock scan scheduling, audit logging, and security posture monitoring.</p>
           <small>FastAPI &bull; Next.js &bull; PostgreSQL &bull; Render</small>
         </article>

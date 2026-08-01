@@ -1,6 +1,7 @@
 const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
 const glow = document.querySelector(".cursor-glow");
+const scrollProgress = document.getElementById("scrollProgress");
 
 if (menuBtn && nav) {
   menuBtn.addEventListener("click", () => {
@@ -23,6 +24,50 @@ if (glow && window.matchMedia("(pointer: fine)").matches) {
     glow.style.left = `${event.clientX}px`;
     glow.style.top = `${event.clientY}px`;
   });
+}
+
+let scrollTicking = false;
+
+const updateScrollProgress = () => {
+  if (!scrollProgress) return;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+  scrollProgress.style.transform = `scaleX(${progress})`;
+  scrollTicking = false;
+};
+
+window.addEventListener("scroll", () => {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(updateScrollProgress);
+}, { passive: true });
+
+updateScrollProgress();
+
+const navLinks = nav
+  ? [...nav.querySelectorAll('a[href^="#"]')].filter((link) => link.getAttribute("href") !== "#contact")
+  : [];
+
+const navSections = navLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+
+if ("IntersectionObserver" in window && navSections.length) {
+  const activeSectionObserver = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (!visible) return;
+    navLinks.forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${visible.target.id}`);
+    });
+  }, {
+    rootMargin: "-28% 0px -58% 0px",
+    threshold: [0, 0.25, 0.5],
+  });
+
+  navSections.forEach((section) => activeSectionObserver.observe(section));
 }
 
 const revealElements = document.querySelectorAll(".reveal");

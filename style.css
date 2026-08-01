@@ -130,6 +130,48 @@ p {
   transform: translate(-50%, -50%);
 }
 
+.ambient-light {
+  position: fixed;
+  z-index: -2;
+  width: 34rem;
+  height: 34rem;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.12;
+}
+
+.ambient-one {
+  top: 12%;
+  right: -12rem;
+  background: var(--blue);
+}
+
+.ambient-two {
+  bottom: 3%;
+  left: -16rem;
+  background: var(--cyan);
+}
+
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 2000;
+  height: 2px;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan), var(--blue));
+  box-shadow: 0 0 14px rgba(89, 242, 218, 0.7);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
 .site-header,
 .section,
 footer {
@@ -206,6 +248,20 @@ footer {
 .nav a:hover,
 .nav a:focus-visible {
   color: var(--cyan);
+}
+
+.nav a.active:not(.nav-contact) {
+  color: var(--ink);
+}
+
+.nav a.active:not(.nav-contact)::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 5px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
 }
 
 .nav .nav-contact {
@@ -312,6 +368,23 @@ footer {
   text-decoration: none;
   text-transform: uppercase;
   transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: -50% auto -50% -55%;
+  width: 32%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-18deg);
+  transition: left 500ms ease;
+}
+
+.btn:hover::after,
+.btn:focus-visible::after {
+  left: 125%;
 }
 
 .btn:hover,
@@ -408,6 +481,12 @@ footer {
   object-fit: cover;
   object-position: center top;
   filter: saturate(0.78) contrast(1.03);
+  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 400ms ease;
+}
+
+.hero-visual:hover .photo-card img {
+  transform: scale(1.025);
+  filter: saturate(0.92) contrast(1.05);
 }
 
 .photo-fallback {
@@ -515,6 +594,7 @@ footer {
   color: var(--cyan);
   font-size: 1.65rem;
   line-height: 1.1;
+  text-shadow: 0 0 24px rgba(89, 242, 218, 0.2);
 }
 
 .stats span {
@@ -661,7 +741,31 @@ footer {
 .cert-card,
 .highlight-grid article,
 .learning-grid div {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(145deg, rgba(11, 24, 40, 0.96), rgba(7, 17, 31, 0.95));
+}
+
+.glass-card::before,
+.skill-card::before,
+.cert-card::before,
+.highlight-grid article::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyan), var(--blue), transparent 72%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 350ms ease;
+}
+
+.glass-card:hover::before,
+.skill-card:hover::before,
+.cert-card:hover::before,
+.highlight-grid article:hover::before {
+  transform: scaleX(1);
 }
 
 .glass-card {
@@ -850,6 +954,22 @@ footer {
   border-bottom: 1px solid var(--line);
   background: rgba(7, 17, 31, 0.34);
   transition: background 220ms ease, transform 220ms ease;
+  overflow: hidden;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  right: -7rem;
+  bottom: -8rem;
+  width: 16rem;
+  height: 16rem;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(83, 169, 255, 0.14), transparent 68%);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 350ms ease, transform 350ms ease;
 }
 
 .project-card:nth-child(3n) {
@@ -867,6 +987,12 @@ footer {
 
 .project-card:hover {
   background: rgba(49, 135, 222, 0.065);
+  transform: translateY(-3px);
+}
+
+.project-card:hover::after {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .project-card > span {
@@ -1033,6 +1159,98 @@ footer p {
 :focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 4px;
+}
+
+@keyframes ambient-drift-one {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-7vw, 5vh, 0) scale(1.14);
+  }
+}
+
+@keyframes ambient-drift-two {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(8vw, -6vh, 0) scale(1.12);
+  }
+}
+
+@keyframes orbit-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 5px rgba(89, 242, 218, 0.1), 0 0 14px var(--cyan);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(89, 242, 218, 0), 0 0 24px var(--cyan);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ambient-one {
+    animation: ambient-drift-one 15s ease-in-out infinite;
+  }
+
+  .ambient-two {
+    animation: ambient-drift-two 18s ease-in-out infinite;
+  }
+
+  .hero-orbit {
+    animation: orbit-turn 36s linear infinite;
+  }
+
+  .availability span {
+    animation: status-pulse 2.2s ease-in-out infinite;
+  }
+
+  .hero-copy > * {
+    animation: hero-rise 720ms both;
+  }
+
+  .hero-copy > :nth-child(2) {
+    animation-delay: 80ms;
+  }
+
+  .hero-copy > :nth-child(3) {
+    animation-delay: 150ms;
+  }
+
+  .hero-copy > :nth-child(4) {
+    animation-delay: 220ms;
+  }
+
+  .hero-copy > :nth-child(5) {
+    animation-delay: 290ms;
+  }
+
+  .hero-visual {
+    animation: hero-visual-enter 900ms 100ms both;
+  }
+
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+  @keyframes hero-visual-enter {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+  }
 }
 
 @media (max-width: 1120px) {

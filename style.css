@@ -772,6 +772,85 @@ footer {
   padding: 38px;
 }
 
+.experience-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 38px;
+  align-items: start;
+}
+
+.experience-logo {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.experience-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 450ms ease;
+}
+
+.experience-featured:hover .experience-logo img {
+  transform: scale(1.045);
+}
+
+.experience-content {
+  min-width: 0;
+}
+
+.organization-line {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.organization-line h4 {
+  margin-bottom: 10px;
+}
+
+.organization-line h4 b {
+  display: inline-block;
+  margin-left: 4px;
+  color: var(--cyan);
+  transition: transform 180ms ease;
+}
+
+.organization-line h4 a:hover b,
+.organization-line h4 a:focus-visible b {
+  transform: translate(3px, -3px);
+}
+
+.nonprofit-label {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  color: var(--cyan);
+  border: 1px solid var(--line-bright);
+  background: rgba(89, 242, 218, 0.06);
+  font: 700 0.6rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.role-location {
+  margin: 0 0 18px;
+  color: var(--dim);
+  font: 700 0.66rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.impact-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 34px;
+}
+
 .card-top {
   display: flex;
   justify-content: space-between;
@@ -1507,6 +1586,21 @@ footer p {
     grid-template-columns: 1fr;
   }
 
+  .experience-featured {
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .organization-line {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .impact-columns {
+    grid-template-columns: 1fr;
+  }
+
   .section-heading-row {
     align-items: start;
     flex-direction: column;
@@ -1620,6 +1714,18 @@ footer p {
   .timeline-item {
     grid-template-columns: 46px 1fr;
     gap: 16px;
+  }
+
+  .experience-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-logo {
+    width: 112px;
+  }
+
+  .glass-card {
+    padding: 28px;
   }
 
   .highlight-grid,

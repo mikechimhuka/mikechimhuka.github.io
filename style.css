@@ -888,6 +888,57 @@ footer {
   position: relative;
 }
 
+.cert-visual,
+.cert-icon-visual {
+  height: 154px;
+  margin: -30px -30px 26px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 70% 10%, rgba(83, 169, 255, 0.18), transparent 12rem),
+    rgba(4, 12, 22, 0.84);
+}
+
+.cert-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(7, 17, 31, 0.82), transparent 58%);
+}
+
+.cert-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  filter: saturate(0.72) contrast(1.04);
+  transform: scale(1.02);
+  transition: transform 500ms ease, filter 350ms ease;
+}
+
+.cert-card:hover .cert-visual img,
+.cert-card:focus-visible .cert-visual img {
+  transform: scale(1.08);
+  filter: saturate(1) contrast(1.06);
+}
+
+.cert-icon-visual img {
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 22px rgba(83, 169, 255, 0.3));
+  transition: transform 350ms ease, filter 350ms ease;
+}
+
+.cert-card:hover .cert-icon-visual img {
+  transform: translateY(-5px) scale(1.06);
+  filter: drop-shadow(0 0 30px rgba(89, 242, 218, 0.46));
+}
+
 .cert-card[data-cert] {
   cursor: pointer;
 }
@@ -916,6 +967,84 @@ footer {
   justify-content: center;
   gap: 8px;
   margin-top: 28px;
+}
+
+.tools-showcase {
+  margin-top: 76px;
+  padding-block: 34px;
+  border-block: 1px solid var(--line);
+}
+
+.tools-showcase-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 36px;
+  margin-bottom: 28px;
+}
+
+.tools-showcase-heading .eyebrow,
+.tools-showcase-heading p {
+  margin-bottom: 0;
+}
+
+.tools-showcase-heading > p:last-child {
+  max-width: 570px;
+  font-size: 0.84rem;
+}
+
+.tools-marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+.tools-track {
+  width: max-content;
+  display: flex;
+  will-change: transform;
+}
+
+.tools-group {
+  display: flex;
+  gap: 12px;
+  padding-right: 12px;
+}
+
+.tool-logo {
+  width: 148px;
+  min-height: 104px;
+  display: grid;
+  place-items: center;
+  gap: 11px;
+  padding: 18px 14px 14px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(11, 24, 40, 0.96), rgba(7, 17, 31, 0.9));
+  font: 700 0.62rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.tool-logo img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 13px rgba(83, 169, 255, 0.22));
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.tool-logo:hover {
+  color: var(--ink);
+  border-color: var(--line-bright);
+  background: rgba(16, 38, 61, 0.96);
+}
+
+.tool-logo:hover img {
+  transform: translateY(-4px) scale(1.08);
+  filter: drop-shadow(0 0 20px rgba(89, 242, 218, 0.5));
 }
 
 .learning {
@@ -979,6 +1108,11 @@ footer {
 .project-card.project-featured {
   grid-column: span 3;
   min-height: 390px;
+}
+
+.project-card.project-link {
+  color: inherit;
+  text-decoration: none;
 }
 
 .project-card.project-featured:nth-child(2) {
@@ -1197,6 +1331,12 @@ footer p {
   }
 }
 
+@keyframes tools-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .ambient-one {
     animation: ambient-drift-one 15s ease-in-out infinite;
@@ -1212,6 +1352,15 @@ footer p {
 
   .availability span {
     animation: status-pulse 2.2s ease-in-out infinite;
+  }
+
+  .tools-track {
+    animation: tools-marquee 36s linear infinite;
+  }
+
+  .tools-marquee:hover .tools-track,
+  .tools-marquee:focus-within .tools-track {
+    animation-play-state: paused;
   }
 
   .hero-copy > * {
@@ -1506,6 +1655,16 @@ footer p {
     justify-content: center;
   }
 
+  .tools-showcase-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .tool-logo {
+    width: 128px;
+    min-height: 94px;
+  }
+
   footer {
     align-items: flex-start;
     flex-direction: column;
@@ -1529,5 +1688,20 @@ footer p {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .tools-track {
+    animation: none;
+    transform: none;
+  }
+
+  .tools-group[aria-hidden="true"] {
+    display: none;
+  }
+
+  .tools-marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }

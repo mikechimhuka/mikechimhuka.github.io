@@ -76,6 +76,105 @@
     }
   </style>
 
+
+  <style id="professional-refinement">
+    :root { --night:#0b1120; --navy:#111b2d; --navy-2:#172237; --ink:#f1f5fb; --muted:#b2bfd2; --dim:#98a9c1; --cyan:#93bfff; --blue:#93bfff; --line:rgba(173,193,224,.18); --line-bright:rgba(147,191,255,.45); --max:1160px; }
+    body { background:var(--night); letter-spacing:0; }
+    body::before,.cursor-glow,.ambient-light,.hero-orbit,.photo-card::after,.btn::after { display:none; }
+    .site-header,.section,footer { width:min(calc(100% - 64px),var(--max)); }
+    .section { padding-block:76px; }
+    .site-header { min-height:88px; gap:20px; }
+    .brand-mark { border-radius:8px; background:#172842; }
+    .brand-copy strong { font-size:.95rem; text-transform:none; letter-spacing:0; }
+    .brand-copy small { font-size:.75rem; letter-spacing:.04em; }
+    .nav { gap:24px; }
+    .nav a,.btn,.contact-links a { font-size:.875rem; text-transform:none; letter-spacing:0; font-weight:600; }
+    .nav .nav-contact,.btn,.contact-links a,.menu-btn { border-radius:7px; }
+    .nav a.active:not(.nav-contact)::after { box-shadow:none; }
+    .hero { min-height:auto; grid-template-columns:minmax(0,1.5fr) minmax(260px,.8fr); gap:72px; padding-block:72px; }
+    .eyebrow { font-family:inherit; font-size:.8rem; letter-spacing:.08em; margin-bottom:20px; line-height:1.5; }
+    .eyebrow > span { display:none; }
+    .hero h1 { font-size:clamp(2.8rem,4.7vw,4.25rem); line-height:1.08; letter-spacing:-.045em; margin-bottom:24px; }
+    .hero h1 span { color:var(--blue); background:none; }
+    .hero-text { font-size:1.1rem; max-width:620px; line-height:1.75; }
+    .btn.primary { background:#a7caff; border-color:#a7caff; color:#10203a; box-shadow:none; }
+    .btn.primary:hover { background:#c3dcff; }
+    .hero-badges span,.tech-stack span { font-family:inherit; font-size:.8rem; text-transform:none; letter-spacing:0; color:var(--muted); border-radius:5px; line-height:1.4; }
+    .hero-visual { min-height:0; display:flex; flex-direction:column; gap:14px; align-items:stretch; animation:none; }
+    .photo-card { width:100%; aspect-ratio:4/5; clip-path:none; border-radius:12px; box-shadow:none; order:0; }
+    .photo-card img { filter:none; }
+    .availability { position:static; order:1; margin:0; padding:0; border:0; background:none; font:500 .875rem/1.5 Inter,sans-serif; letter-spacing:0; text-transform:none; backdrop-filter:none; }
+    .availability span { animation:none; box-shadow:none; background:#80c9a7; }
+    .floating-card { position:static; order:2; padding:0; border:0; background:none; max-width:none; box-shadow:none; backdrop-filter:none; }
+    .floating-card span { font:500 .75rem/1.5 Inter,sans-serif; letter-spacing:0; margin-bottom:2px; text-transform:none; }
+    .floating-card strong { font-size:.9rem; }
+    .card-one { display:none; }
+    .stats { padding:0; background:none; grid-template-columns:repeat(4,minmax(0,1fr)); }
+    .stats > div,.stats > div:first-child { padding:24px; min-height:104px; }
+    .stats strong { color:var(--ink); text-shadow:none; font-size:1.75rem; }
+    .stats span { font-size:.85rem; }
+    .section-heading,.section-heading.center { margin:0 0 32px; text-align:left; max-width:760px; }
+    .section-heading.center .eyebrow { justify-content:flex-start; }
+    .section-heading h2,.contact-card h2 { font-size:clamp(1.9rem,3vw,2.6rem); line-height:1.2; letter-spacing:-.035em; }
+    #projects { padding-top:76px; }
+    .section-heading-row { max-width:none; gap:32px; }
+    .project-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; border:0; }
+    .project-card,.project-card.project-featured { grid-column:auto; min-height:285px; padding:30px; border:1px solid var(--line); border-radius:10px; background:var(--navy); }
+    .project-card:nth-child(n) { border-right:1px solid var(--line); }
+    .project-card h3 { margin:24px 0 16px; font-size:1.5rem; line-height:1.25; letter-spacing:-.02em; }
+    .project-card p { font-size:1rem; }
+    .project-card small { margin-top:auto; padding-top:24px; font:500 .8rem/1.6 Inter,sans-serif; text-transform:none; letter-spacing:0; color:var(--blue); }
+    .project-card > span { font:600 .75rem/1.4 Inter,sans-serif; letter-spacing:.06em; }
+    .project-card:hover { background:#16233a; transform:translateY(-2px); }
+    .project-card::after { display:none; }
+    .experience-grid,.skill-grid,.cert-grid,.highlight-grid,.learning-grid { gap:18px; border:0; background:none; }
+    .glass-card,.skill-card,.cert-card,.highlight-grid article,.learning-grid div { border:1px solid var(--line); border-radius:10px; background:var(--navy); }
+    .glass-card { padding:30px; }
+    .glass-card h3 { font-size:1.4rem; line-height:1.3; }
+    .card-top { flex-wrap:wrap; margin-bottom:24px; gap:8px; }
+    .card-top span,.role-location,.article-tag { font:500 .8rem/1.5 Inter,sans-serif; text-transform:none; letter-spacing:0; }
+    .impact-list li,.timeline-item p,.skill-card p,.highlight-grid p,.cert-card p,.article-card p { font-size:1rem; }
+    .cert-card small { font:500 .8rem/1.5 Inter,sans-serif; text-transform:none; letter-spacing:0; }
+    .why-hire,.contact { padding:56px 32px; background:var(--navy); border:1px solid var(--line); border-radius:12px; }
+    .why-hire { margin-block:20px; }
+    .highlight-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .highlight-grid article > span { width:auto; height:auto; border:0; margin-bottom:14px; }
+    .split { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:48px; }
+    .featured-article { padding-top:30px; }
+    .article-card { grid-template-columns:1fr auto; gap:16px 28px; border-radius:10px; background:var(--navy); }
+    .article-tag,.article-card h2,.article-card p { grid-column:1; }
+    .article-card p { display:block; }
+    .article-card .btn { grid-column:2; grid-row:1/4; }
+    .tools-showcase { display:none; }
+    .reveal { opacity:1; transform:none; }
+    .hero-copy > * { animation:none; }
+    footer { margin-top:48px; }
+    footer p { font:400 .8rem/1.6 Inter,sans-serif; letter-spacing:0; text-transform:none; }
+    @media(max-width:900px) {
+      .hero { grid-template-columns:minmax(0,1fr) 260px; gap:32px; }
+      .nav { background:var(--navy); }
+      .experience-grid,.split { grid-template-columns:1fr; }
+    }
+    @media(max-width:620px) {
+      .site-header,.section,footer { width:calc(100% - 36px); }
+      .section { padding-block:48px; }
+      .hero { grid-template-columns:1fr; gap:32px; }
+      .hero h1 { font-size:2.75rem; }
+      .hero-visual { max-width:300px; }
+      .stats { grid-template-columns:repeat(2,minmax(0,1fr)); padding:0; }
+      .stats > div,.stats > div:first-child { padding:18px 12px; }
+      .stats span { font-size:.8rem; }
+      .project-grid,.highlight-grid { grid-template-columns:1fr; }
+      .project-card,.project-card.project-featured { padding:24px; min-height:0; border:1px solid var(--line)!important; }
+      .glass-card { padding:24px; }
+      .why-hire,.contact { padding:32px 20px; }
+      .article-card { grid-template-columns:1fr; padding:24px; }
+      .article-card .btn { grid-column:1; grid-row:auto; }
+      .section-heading-row { gap:8px; }
+      #projects { padding-top:48px; }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -112,10 +211,10 @@
       <div class="hero-copy reveal">
         <p class="eyebrow"><span aria-hidden="true"></span> IT Support &bull; Cybersecurity &bull; Networking</p>
 
-        <h1 id="hero-title">Secure systems.<span>Real IT problems solved.</span></h1>
+        <h1 id="hero-title">Mike Chimhuka.<span>IT support. Security. Service.</span></h1>
 
         <p class="hero-text">
-          I&rsquo;m Mike Chimhuka;an IT support and cybersecurity professional with help desk leadership experience who combines calm troubleshooting, network fluency, and a security-first mindset to keep people productive and systems resilient.
+          I help people work confidently with technology. My experience spans help desk support, mentoring 15 IT interns, and building practical web and security platforms. Based in Cincinnati, Ohio.
         </p>
 
         <div class="hero-actions">
@@ -173,6 +272,60 @@
       </div>
     </section>
 
+    <section class="section" id="projects">
+      <div class="section-heading reveal section-heading-row">
+        <div>
+          <p class="eyebrow"><span aria-hidden="true"></span> Selected systems &amp; initiatives</p>
+          <h2>Selected projects.</h2>
+        </div>
+        <p>Projects where technical execution meets real-world usefulness&mdash;from international education access to proactive security operations.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card project-featured reveal">
+          <span>01</span>
+          <h3><a href="https://nextstepstudysolutions.org/" target="_blank" rel="noopener noreferrer" class="company-link">Next Step Study Solutions <b aria-hidden="true">&nearr;</b></a></h3>
+          <p>Built a digital platform for a registered nonprofit helping students from Zimbabwe and across Africa access university matching, study-abroad applications, visa guidance, scholarships, and pre-departure support.</p>
+          <small>Nonprofit &bull; Study Abroad Support &bull; Web Platform</small>
+        </article>
+
+        <a class="project-card project-featured project-link reveal" href="https://cyberpulse-frontend.onrender.com/login" target="_blank" rel="noopener noreferrer" aria-label="Open CyberPulse Security Platform">
+          <span>02</span>
+          <h3>CyberPulse Security Platform <b aria-hidden="true">&nearr;</b></h3>
+          <p>Built and deployed a full-stack defensive cybersecurity platform for asset inventory, vulnerability tracking, authorized mock scan scheduling, audit logging, and security posture monitoring.</p>
+          <small>FastAPI &bull; Next.js &bull; PostgreSQL &bull; Render</small>
+        </a>
+
+        <article class="project-card reveal">
+          <span>03</span>
+          <h3>Personal Portfolio Website</h3>
+          <p>A professional website showcasing my story, skills, certifications, career goals, and technical growth.</p>
+          <small>HTML &bull; CSS &bull; JavaScript</small>
+        </article>
+
+        <article class="project-card reveal">
+          <span>04</span>
+          <h3>Network Engineering Capstone</h3>
+          <p>Designed network configurations using VLANs, OSPF, routing, switching, DHCP, and documentation.</p>
+          <small>Cisco &bull; Networking &bull; Documentation</small>
+        </article>
+
+        <article class="project-card reveal">
+          <span>05</span>
+          <h3>TryHackMe Labs</h3>
+          <p>Hands-on cybersecurity learning through guided labs, concepts, tools, and real-world practice.</p>
+          <small>Cybersecurity &bull; Linux &bull; Security Tools</small>
+        </article>
+
+        <a class="project-card project-link reveal" href="https://www.pg-65.com/" target="_blank" rel="noopener noreferrer" aria-label="Open PG-65 website">
+          <span>06</span>
+          <h3>PG-65 Content Platform <b aria-hidden="true">&nearr;</b></h3>
+          <p>A full-stack publishing platform for blogs, publications, videos, and podcasts, with content management and year-based archives.</p>
+          <small>React &bull; Next.js &bull; Express &bull; TypeScript &bull; MongoDB</small>
+        </a>
+      </div>
+    </section>
+
     <section class="section featured-article reveal">
       <div class="article-card">
         <span class="article-tag">Featured Article</span>
@@ -186,62 +339,10 @@
       </div>
     </section>
 
-    <section class="section split" id="story">
-      <div class="section-heading reveal">
-        <p class="eyebrow">My Story</p>
-        <h2>A journey of starting over, learning the system, and growing with purpose.</h2>
-        <p>
-          My story is built on discipline, faith, mentorship, and a willingness to keep learning even when the path is difficult.
-        </p>
-      </div>
-
-      <div class="timeline">
-        <article class="timeline-item reveal">
-          <span>&#127487;&#127484;</span>
-          <div>
-            <h3>From Zimbabwe</h3>
-            <p>I came to the United States to pursue the American Dream. The journey taught me resilience, humility, and the importance of building a life through purpose instead of shortcuts.</p>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <span>&#128218;</span>
-          <div>
-            <h3>Finding Direction</h3>
-            <p>I originally considered Civil Engineering because I enjoyed math and physics. Cybersecurity challenged me at first, but learning how computers communicate helped me discover a career path I could grow into.</p>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <span>&#10013;</span>
-          <div>
-            <h3>The Turning Point</h3>
-            <p>In August 2025, church, mentorship, and professional guidance helped me mature. I learned the value of reliability, professionalism, preparation, and becoming someone people can depend on.</p>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <span>&#128640;</span>
-          <div>
-            <h3>Growth and Discipline</h3>
-            <p>During winter break, I studied intensely and passed Network+. Later, while taking 16 credits and working part-time, I passed AZ-900 and earned a 4.0 Dean&rsquo;s List semester.</p>
-          </div>
-        </article>
-
-        <article class="timeline-item reveal">
-          <span>&#128737;</span>
-          <div>
-            <h3>Cybersecurity Path</h3>
-            <p>I earned Security+ on July 3, 2026, began working toward CCNA, and continue building hands-on cybersecurity experience through labs, networking practice, and real-world troubleshooting.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
     <section class="section" id="experience">
       <div class="section-heading reveal center">
         <p class="eyebrow">Experience</p>
-        <h2>Leadership, nonprofit impact, technical support, operations, and mentorship.</h2>
+        <h2>Professional experience.</h2>
       </div>
 
       <div class="experience-grid">
@@ -347,7 +448,7 @@
         <article>
           <span>02</span>
           <h3>Leadership Experience</h3>
-          <p>Currently lead and mentor IT interns, helping others grow while strengthening my own support, communication, and documentation skills.</p>
+          <p>Led and mentored 15 IT interns, strengthening troubleshooting, communication, and documentation across the team.</p>
         </article>
 
         <article>
@@ -367,7 +468,7 @@
     <section class="section certifications" id="certifications">
       <div class="section-heading reveal center">
         <p class="eyebrow">Certifications</p>
-        <h2>Proof of learning, discipline, and technical growth.</h2>
+        <h2>Certifications &amp; education.</h2>
         <p>Click any available certification card to view the certificate.</p>
       </div>
 
@@ -437,7 +538,7 @@
     <section class="section" id="skills">
       <div class="section-heading reveal center">
         <p class="eyebrow">Technical Skills</p>
-        <h2>Skills organized for IT, cybersecurity, networking, and software roles.</h2>
+        <h2>Technical expertise.</h2>
       </div>
 
       <div class="skill-grid">
@@ -551,57 +652,55 @@
         <div>Network Troubleshooting</div>
       </div>
     </section>
-    <section class="section" id="projects">
-      <div class="section-heading reveal section-heading-row">
-        <div>
-          <p class="eyebrow"><span aria-hidden="true"></span> Selected systems &amp; initiatives</p>
-          <h2>Work built to matter.</h2>
-        </div>
-        <p>Projects where technical execution meets real-world usefulness&mdash;from international education access to proactive security operations.</p>
+    <section class="section split" id="story">
+      <div class="section-heading reveal">
+        <p class="eyebrow">My Story</p>
+        <h2>A journey of starting over, learning the system, and growing with purpose.</h2>
+        <p>
+          My story is built on discipline, faith, mentorship, and a willingness to keep learning even when the path is difficult.
+        </p>
       </div>
 
-      <div class="project-grid">
-        <article class="project-card project-featured reveal">
-          <span>01</span>
-          <h3><a href="https://nextstepstudysolutions.org/" target="_blank" rel="noopener noreferrer" class="company-link">Next Step Study Solutions <b aria-hidden="true">&nearr;</b></a></h3>
-          <p>Built a digital platform for a registered nonprofit helping students from Zimbabwe and across Africa access university matching, study-abroad applications, visa guidance, scholarships, and pre-departure support.</p>
-          <small>Nonprofit &bull; Study Abroad Support &bull; Web Platform</small>
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <span>&#127487;&#127484;</span>
+          <div>
+            <h3>From Zimbabwe</h3>
+            <p>I came to the United States to pursue the American Dream. The journey taught me resilience, humility, and the importance of building a life through purpose instead of shortcuts.</p>
+          </div>
         </article>
 
-        <a class="project-card project-featured project-link reveal" href="https://cyberpulse-frontend.onrender.com/login" target="_blank" rel="noopener noreferrer" aria-label="Open CyberPulse Security Platform">
-          <span>02</span>
-          <h3>CyberPulse Security Platform <b aria-hidden="true">&nearr;</b></h3>
-          <p>Built and deployed a full-stack defensive cybersecurity platform for asset inventory, vulnerability tracking, authorized mock scan scheduling, audit logging, and security posture monitoring.</p>
-          <small>FastAPI &bull; Next.js &bull; PostgreSQL &bull; Render</small>
-        </a>
-
-        <article class="project-card reveal">
-          <span>03</span>
-          <h3>Personal Portfolio Website</h3>
-          <p>A professional website showcasing my story, skills, certifications, career goals, and technical growth.</p>
-          <small>HTML &bull; CSS &bull; JavaScript</small>
+        <article class="timeline-item reveal">
+          <span>&#128218;</span>
+          <div>
+            <h3>Finding Direction</h3>
+            <p>I originally considered Civil Engineering because I enjoyed math and physics. Cybersecurity challenged me at first, but learning how computers communicate helped me discover a career path I could grow into.</p>
+          </div>
         </article>
 
-        <article class="project-card reveal">
-          <span>04</span>
-          <h3>Network Engineering Capstone</h3>
-          <p>Designed network configurations using VLANs, OSPF, routing, switching, DHCP, and documentation.</p>
-          <small>Cisco &bull; Networking &bull; Documentation</small>
+        <article class="timeline-item reveal">
+          <span>&#10013;</span>
+          <div>
+            <h3>The Turning Point</h3>
+            <p>In August 2025, church, mentorship, and professional guidance helped me mature. I learned the value of reliability, professionalism, preparation, and becoming someone people can depend on.</p>
+          </div>
         </article>
 
-        <article class="project-card reveal">
-          <span>05</span>
-          <h3>TryHackMe Labs</h3>
-          <p>Hands-on cybersecurity learning through guided labs, concepts, tools, and real-world practice.</p>
-          <small>Cybersecurity &bull; Linux &bull; Security Tools</small>
+        <article class="timeline-item reveal">
+          <span>&#128640;</span>
+          <div>
+            <h3>Growth and Discipline</h3>
+            <p>During winter break, I studied intensely and passed Network+. Later, while taking 16 credits and working part-time, I passed AZ-900 and earned a 4.0 Dean&rsquo;s List semester.</p>
+          </div>
         </article>
 
-        <a class="project-card project-link reveal" href="https://www.pg-65.com/" target="_blank" rel="noopener noreferrer" aria-label="Open PG-65 website">
-          <span>06</span>
-          <h3>PG-65 Content Platform <b aria-hidden="true">&nearr;</b></h3>
-          <p>A full-stack publishing platform for blogs, publications, videos, and podcasts, with content management and year-based archives.</p>
-          <small>React &bull; Next.js &bull; Express &bull; TypeScript &bull; MongoDB</small>
-        </a>
+        <article class="timeline-item reveal">
+          <span>&#128737;</span>
+          <div>
+            <h3>Cybersecurity Path</h3>
+            <p>I earned Security+ on July 3, 2026, began working toward CCNA, and continue building hands-on cybersecurity experience through labs, networking practice, and real-world troubleshooting.</p>
+          </div>
+        </article>
       </div>
     </section>
 
